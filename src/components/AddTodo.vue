@@ -26,6 +26,7 @@ export default {
       }
       // Send up to parent by emitting an event
       this.$emit('add-todo', newTodo)
+      this.title = ''
     }
   }
 }
