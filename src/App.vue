@@ -25,8 +25,14 @@ export default {
     }
   },
   methods: {
-    deleteTodo(id) {
-      this.todos = this.todos.filter(todo => todo.id !== id)
+    async deleteTodo(id) {
+      try {
+        await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+        this.todos = this.todos.filter(todo => todo.id !== id)
+      } catch (err) {
+        // eslint-disable-next-line
+        console.log('There has been an error with deleteTodo --> ', err)
+      }
     },
     async addTodo(newTodo) {
       const { title, completed } = newTodo
