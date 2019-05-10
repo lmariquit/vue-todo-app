@@ -1,6 +1,6 @@
-This Todo App is my first attempt at creating an application using the Vue.JS front-end framework. To create this application, I followed the tutorial created by Traversy Media: https://www.youtube.com/watch?v=Wy9q22isx3U.
-
 # vue-todo-app
+
+This Todo App is my first attempt at creating an application using the Vue.JS front-end framework. To create this application, I followed the tutorial created by Traversy Media: https://www.youtube.com/watch?v=Wy9q22isx3U.
 
 ## Project setup
 
