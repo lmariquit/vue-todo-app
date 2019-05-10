@@ -28,8 +28,21 @@ export default {
     deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id)
     },
-    addTodo(newTodo) {
-      this.todos = [...this.todos, newTodo]
+    async addTodo(newTodo) {
+      const { title, completed } = newTodo
+      try {
+        const res = await axios.post(
+          'https://jsonplaceholder.typicode.com/todos',
+          {
+            title,
+            completed
+          }
+        )
+        this.todos = [...this.todos, res.data]
+      } catch (err) {
+        // eslint-disable-next-line
+        console.log('There has been an error with addTodo --> ', err)
+      }
     }
   },
   async created() {
@@ -40,7 +53,7 @@ export default {
       this.todos = res.data
     } catch (err) {
       // eslint-disable-next-line
-      console.log('There has been an error', err)
+      console.log('There has been an error with created --> ', err)
     }
   }
 }
